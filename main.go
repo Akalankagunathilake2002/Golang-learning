@@ -49,7 +49,7 @@ func updateProduct(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, "Product not found", http.StatusNotFound)
 }
 
-//removed the expired products
+//removed the expired products details
 func deleteProduct(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(r.URL.Query().Get("id"))
 
