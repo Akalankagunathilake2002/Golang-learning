@@ -22,6 +22,7 @@ func getProducts(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(products)
 }
 
+//create the new product
 func createProduct(w http.ResponseWriter, r *http.Request) {
 	var product Product
 	json.NewDecoder(r.Body).Decode(&product)
@@ -32,6 +33,7 @@ func createProduct(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(product)
 }
 
+//update the product details 
 func updateProduct(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(r.URL.Query().Get("id"))
 
@@ -47,6 +49,7 @@ func updateProduct(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, "Product not found", http.StatusNotFound)
 }
 
+//removed the expired products
 func deleteProduct(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(r.URL.Query().Get("id"))
 
